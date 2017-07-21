@@ -21,7 +21,8 @@ const debtSchema = new mongoose.Schema({
     value: {
         type: Number,
         min: 0,
-        required: true
+        required: [true, "É Obrigatorio Informar o Valor do Débito !!!"]
+            //Incluindo ou traduzindo uma mensagem de inconsistência
     },
     status: {
         type: String,
@@ -53,5 +54,3 @@ const billingCycleSchema = new mongoose.Schema({
 })
 
 module.exports = restful.model('BillingCycle', billingCycleSchema)
-
-//teste de inicio
