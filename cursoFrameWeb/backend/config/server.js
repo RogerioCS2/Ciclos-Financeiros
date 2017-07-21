@@ -54,14 +54,4 @@ server.listen(port, function() {
     de retorno do servidor (const porta 3003) 
     */
 
-server.use(function(req, res, next) {
-        res.send('Olá Rogério CS o Servidor Está Funcionado Normalmente')
-    })
-    /*
-    Usando o servidor e criando uma função para informar no navegador que o 
-    servidor está funcinando normalmente
-
-    REQ -> Requisição de alguma informação do servidor
-    RES -> Resposta de retorno do servidor
-    NEXT -> Comando para informar que o sistema de ir para a proxima função (middleware)
-    */
+module.exports = server //Exportando o Servidor
