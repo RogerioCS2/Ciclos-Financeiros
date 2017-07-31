@@ -12,7 +12,7 @@ server.use(allowCors)
 server.use(queryParser())
 
 server.listen(port, function() {
-    console.log(`O Backend Está Rodando na porta ${port}.`)
+    console.log(`Olá Rogério o sistema esta funcionando na porta ${port}.`)
 })
 
 module.exports = server
