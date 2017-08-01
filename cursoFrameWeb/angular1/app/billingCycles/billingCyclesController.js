@@ -7,10 +7,12 @@
 
     function billingCyclesController($http, msgs) {
         const vm = this
-        const url = "http://localhost:3003/api/billingCycles";
+        const url = "http://localhost:3003/api/billingCycles"
 
         vm.refresh = function() {
+
             $http.get(url).then(function(response) {
+
                 vm.billingCycle = {}
                 vm.billingCycles = response
             })
