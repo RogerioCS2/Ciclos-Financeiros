@@ -5,6 +5,8 @@
             label: '@',
             grid: '@',
             placeholder: '@',
+            type: '@',
+            model: '=',
         },
         controller: [
             'gridSystem',
@@ -13,10 +15,11 @@
             }
         ],
         template: `
-        <div class="col-xs-12 col-sm-4">
+        <div class="{{$ctrl.gridClasses}}">
             <div class="form-group">
-                <label for="name">Nome</label>
-                <input id="name" class="form-control" placeholder="Informa o nome">
+                <label for="{{$ctrl.id}}">{{$ctrl.label}}</label>
+                <input id="{{$ctrl.id}}" class="form-control" placeholder="{{$ctrl.placeholder}}" 
+                type="{{$ctrl.type}}" ng-model="$ctrl.model"/>                
             </div>
         </div>        
         `
