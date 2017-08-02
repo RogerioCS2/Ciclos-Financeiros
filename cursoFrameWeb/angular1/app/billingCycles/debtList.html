@@ -21,7 +21,7 @@
                 </td>
                 <td class="table-actions">
                     <button class="btn btn-success" ng-class="{disabled: bcCtrl.tabDelete}"><i class="fa fa-plus" ng-click="bcCtrl.addDebt($index)"></i></button>
-                    <button class="btn btn-warning" ng-class="{disabled: bcCtrl.tabDelete}"><i class="fa fa-clone" ng-click="bcCtrl.cloneDebt($index)"></i></button>
+                    <button class="btn btn-warning" ng-class="{disabled: bcCtrl.tabDelete}"><i class="fa fa-clone" ng-click="bcCtrl.cloneDebt($index, debt)"></i></button>
                     <button class="btn btn-danger" ng-class="{disabled: bcCtrl.tabDelete}"><i class="fa fa-trash-o" ng-click="bcCtrl.deleteDebt($index)"></i></button>
                 </td>
             </tr>
