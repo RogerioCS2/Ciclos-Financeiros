@@ -1,29 +1,22 @@
 const _ = require('lodash')
 const BillingCycle = require('./billingCycle')
-const BillingSummaryService = require('../billingSummary/billingSummaryService')
-    //const mongooseMid = require('../middleware/forMongoose')
 
 BillingCycle.methods(['get', 'post', 'put', 'delete'])
 BillingCycle.updateOptions({ new: true, runValidators: true })
 
-BillingCycle.after('post', saveSummary).after('put', saveSummary)
+BillingCycle.after('post', sendErrorsOrNext).after('put', sendErrorsOrNext)
 
-function saveSummary(req, res, next) {
+function sendErrorsOrNext(req, res, next) {
     const bundle = res.locals.bundle
 
     if (bundle.errors) {
         var errors = parseErrors(bundle.errors)
         res.status(500).json({ errors })
     } else {
-        const summary = {
-            BillingCycle: bundle._id,
-            credit: _.sumBy(bundle.credits, 'value'),
-            debt: _.sumBy(bundle.debts, 'value'),
-
-        }
+        next()
     }
 }
-/*
+
 function parseErrors(nodeRestfulErrors) {
     const errors = []
     _.forIn(nodeRestfulErrors, error => errors.push(error.message))
@@ -39,5 +32,5 @@ BillingCycle.route('count', function(req, res, next) {
         }
     })
 })
-*/
+
 module.exports = BillingCycle
